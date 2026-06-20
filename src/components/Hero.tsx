@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import WordsPullUp from './WordsPullUp';
+import AutoPlayVideo from './AutoPlayVideo';
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -49,36 +49,20 @@ function DescriptionAndCTA() {
 }
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid) return;
-    vid.setAttribute('webkit-playsinline', '');
-    vid.muted = true;
-    vid.play().catch(() => {});
-  }, []);
-
   return (
     <section className="h-screen p-4 md:p-6 bg-black">
       <div className="relative w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden">
         {/* Background video */}
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+        <AutoPlayVideo
           src="/hero.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
         {/* Noise overlay */}
         <div className="noise-overlay opacity-[0.7] mix-blend-overlay pointer-events-none z-10" />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10 pointer-events-none" />
 
         {/* Navbar */}
         <div className="absolute top-0 left-0 right-0 flex justify-center z-20">
