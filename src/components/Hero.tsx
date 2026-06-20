@@ -69,11 +69,11 @@ export default function Hero() {
           </nav>
         </div>
 
-        {/* Hero content - stacked: description/CTA above, heading at very bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col p-4 md:p-8 pb-6 md:pb-10">
-          {/* Description + CTA — right-aligned, sits above the heading */}
-          <div className="flex justify-end mb-3 md:mb-4">
-            <div className="flex flex-col gap-4 w-full sm:w-2/3 lg:w-1/3">
+        {/* Hero content */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 p-4 md:p-8 pb-6 md:pb-10">
+          {/* Row 1: empty left 8 cols, description + CTA in right 4 cols */}
+          <div className="grid grid-cols-12 mb-3 md:mb-5">
+            <div className="col-span-12 lg:col-span-4 lg:col-start-9 flex flex-col gap-4">
               <motion.p
                 className="text-primary/70 text-xs sm:text-sm md:text-base m-0"
                 style={{ lineHeight: 1.2 }}
@@ -102,9 +102,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Giant heading — full width, anchored to bottom */}
+          {/* Row 2: full-width giant heading */}
           <h1
-            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 overflow-hidden"
+            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 overflow-hidden w-full"
             style={{
               fontSize: 'clamp(48px, 17vw, 320px)',
               color: '#E1E0CC',
