@@ -18,7 +18,7 @@ function DescriptionAndCTA() {
   return (
     <>
       <motion.p
-        className="text-primary/70 text-xs sm:text-sm md:text-base m-0"
+        className="text-primary text-xs sm:text-sm md:text-base m-0"
         style={{ lineHeight: 1.2 }}
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

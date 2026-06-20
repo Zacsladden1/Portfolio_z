@@ -1,10 +1,10 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 import WordsPullUpMultiStyle from './WordsPullUpMultiStyle';
 import AutoPlayVideo from './AutoPlayVideo';
 
-const FEATURE_VIDEO = '/features-card.mp4';
+const FEATURE_VIDEO = '/hero.mp4';
 
 const CARDS = [
   {
@@ -60,7 +60,7 @@ function FeatureCard({ card, index }: { card: typeof CARDS[number]; index: numbe
         <div className="relative w-full h-full min-h-[320px]">
           <AutoPlayVideo
             src={FEATURE_VIDEO}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover scale-[2] -translate-x-24"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
@@ -91,15 +91,6 @@ function FeatureCard({ card, index }: { card: typeof CARDS[number]; index: numbe
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="mt-6">
-            <a
-              href="#"
-              className="inline-flex items-center gap-1 text-primary text-xs sm:text-sm hover:gap-2 transition-all duration-200"
-            >
-              Learn more
-              <ArrowRight className="w-3.5 h-3.5" style={{ transform: 'rotate(-45deg)' }} />
-            </a>
           </div>
         </div>
       )}
