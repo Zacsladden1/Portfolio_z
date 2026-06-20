@@ -69,51 +69,51 @@ export default function Hero() {
           </nav>
         </div>
 
-        {/* Hero content - bottom aligned */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 grid grid-cols-12 items-end p-4 md:p-8 pb-6 md:pb-10">
-          {/* Heading - left 8 cols */}
-          <div className="col-span-12 lg:col-span-8">
-            <h1
-              className="font-medium leading-[0.85] tracking-[-0.07em] m-0"
-              style={{
-                fontSize: 'clamp(18vw, 20vw, 22vw)',
-                color: '#E1E0CC',
-              }}
-            >
-              <span className="relative inline-block">
-                <WordsPullUp text="Automate" showAsterisk />
-              </span>
-            </h1>
-          </div>
-
-          {/* Right column - description + CTA */}
-          <div className="col-span-12 lg:col-span-4 flex flex-col gap-4 pb-2 lg:pl-4">
-            <motion.p
-              className="text-primary/70 text-xs sm:text-sm md:text-base m-0"
-              style={{ lineHeight: 1.2 }}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
-            >
-              Automated by Zac connects your tools, eliminates repetitive work and builds custom applications, turning hours of manual effort into intelligent workflows that run themselves, around the clock.
-            </motion.p>
-
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.7, ease: EASE }}
-            >
-              <a
-                href="#"
-                className="group inline-flex items-center gap-2 hover:gap-3 transition-all duration-300 bg-primary rounded-full pl-5 pr-1 py-1"
+        {/* Hero content - stacked: description/CTA above, heading at very bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col p-4 md:p-8 pb-6 md:pb-10">
+          {/* Description + CTA — right-aligned, sits above the heading */}
+          <div className="flex justify-end mb-3 md:mb-4">
+            <div className="flex flex-col gap-4 w-full sm:w-2/3 lg:w-1/3">
+              <motion.p
+                className="text-primary/70 text-xs sm:text-sm md:text-base m-0"
+                style={{ lineHeight: 1.2 }}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
               >
-                <span className="font-medium text-sm sm:text-base text-black">Get started</span>
-                <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <ArrowRight className="w-4 h-4 text-primary" />
-                </span>
-              </a>
-            </motion.div>
+                Automated by Zac connects your tools, eliminates repetitive work and builds custom applications, turning hours of manual effort into intelligent workflows that run themselves, around the clock.
+              </motion.p>
+
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.7, ease: EASE }}
+              >
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-2 hover:gap-3 transition-all duration-300 bg-primary rounded-full pl-5 pr-1 py-1"
+                >
+                  <span className="font-medium text-sm sm:text-base text-black">Get started</span>
+                  <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <ArrowRight className="w-4 h-4 text-primary" />
+                  </span>
+                </a>
+              </motion.div>
+            </div>
           </div>
+
+          {/* Giant heading — full width, anchored to bottom */}
+          <h1
+            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 w-full"
+            style={{
+              fontSize: 'clamp(18vw, 20vw, 22vw)',
+              color: '#E1E0CC',
+            }}
+          >
+            <span className="relative inline-block">
+              <WordsPullUp text="Automate" showAsterisk />
+            </span>
+          </h1>
         </div>
       </div>
     </section>
