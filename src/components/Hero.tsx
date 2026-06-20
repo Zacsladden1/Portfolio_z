@@ -115,17 +115,15 @@ export default function Hero() {
           </nav>
         </div>
 
-        {/* ── MOBILE layout (< lg): Automate at top, description at bottom ── */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-between px-4 pt-16 pb-6 lg:hidden">
+        {/* ── MOBILE layout (< lg): everything bottom-anchored, Automate just above text ── */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col gap-4 px-4 pb-6 lg:hidden">
           <h1
             className="font-medium leading-[0.85] tracking-[-0.07em] m-0 overflow-hidden"
-            style={{ fontSize: 'clamp(48px, 20vw, 120px)', color: '#E1E0CC' }}
+            style={{ fontSize: 'clamp(48px, 17vw, 120px)', color: '#E1E0CC' }}
           >
             <WordsPullUp text="Automate" showAsterisk />
           </h1>
-          <div className="flex flex-col gap-4">
-            <DescriptionAndCTA />
-          </div>
+          <DescriptionAndCTA />
         </div>
 
         {/* ── DESKTOP layout (≥ lg): description top-right, Automate full-width bottom ── */}

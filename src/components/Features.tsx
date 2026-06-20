@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import WordsPullUpMultiStyle from './WordsPullUpMultiStyle';
@@ -45,7 +45,16 @@ const CARDS = [
 
 function FeatureCard({ card, index }: { card: typeof CARDS[number]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    vid.setAttribute('webkit-playsinline', '');
+    vid.muted = true;
+    vid.play().catch(() => {});
+  }, []);
 
   return (
     <motion.div
@@ -58,12 +67,14 @@ function FeatureCard({ card, index }: { card: typeof CARDS[number]; index: numbe
       {card.type === 'video' ? (
         <div className="relative w-full h-full min-h-[320px]">
           <video
+            ref={videoRef}
             className="absolute inset-0 w-full h-full object-cover"
             src={FEATURE_VIDEO}
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
