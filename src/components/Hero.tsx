@@ -52,10 +52,15 @@ export default function Hero() {
   return (
     <section className="h-screen p-4 md:p-6 bg-black">
       <div className="relative w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden">
-        {/* Background video */}
+        {/* Background video — mobile */}
         <AutoPlayVideo
-          src="/hero.mp4"
-          className="absolute inset-0 w-full h-full object-cover"
+          src="/hero-mobile.mp4"
+          className="absolute inset-0 w-full h-full object-cover lg:hidden"
+        />
+        {/* Background video — desktop */}
+        <AutoPlayVideo
+          src="/hero-desktop.mp4"
+          className="absolute inset-0 w-full h-full object-cover hidden lg:block"
         />
 
         {/* Noise overlay */}
