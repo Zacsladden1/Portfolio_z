@@ -189,8 +189,8 @@ export default function Work() {
                   </ul>
                 </div>
 
-                {/* Right: visual */}
-                <div className="bg-[#0d0d0d] flex items-center justify-center min-h-[300px] lg:min-h-[480px]">
+                {/* Right: visual — desktop only */}
+                <div className="hidden lg:flex bg-[#0d0d0d] items-center justify-center lg:min-h-[480px]">
                   {project.visual === 'phone'
                     ? <PhoneMockup src={project.screenshot} />
                     : <LaptopMockup src={project.screenshot} />
