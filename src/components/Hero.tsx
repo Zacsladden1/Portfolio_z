@@ -104,15 +104,13 @@ export default function Hero() {
 
           {/* Giant heading — full width, anchored to bottom */}
           <h1
-            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 w-full"
+            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 overflow-hidden"
             style={{
-              fontSize: 'clamp(18vw, 20vw, 22vw)',
+              fontSize: 'clamp(48px, 17vw, 320px)',
               color: '#E1E0CC',
             }}
           >
-            <span className="relative inline-block">
-              <WordsPullUp text="Automate" showAsterisk />
-            </span>
+            <WordsPullUp text="Automate" showAsterisk />
           </h1>
         </div>
       </div>
