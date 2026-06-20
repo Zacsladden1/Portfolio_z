@@ -2,6 +2,7 @@ import './index.css';
 import Hero from './components/Hero';
 import About from './components/About';
 import Features from './components/Features';
+import Contact from './components/Contact';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Hero />
       <About />
       <Features />
+      <Contact />
     </main>
   );
 }
