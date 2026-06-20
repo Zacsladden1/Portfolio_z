@@ -1,5 +1,7 @@
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import WordsPullUp from './WordsPullUp';
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -8,24 +10,68 @@ function LinkedInIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-import WordsPullUp from './WordsPullUp';
 
 const NAV_ITEMS = ['Services', 'Projects', 'Tech stack', 'Case studies', 'Contact'];
-
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+function DescriptionAndCTA() {
+  return (
+    <>
+      <motion.p
+        className="text-primary/70 text-xs sm:text-sm md:text-base m-0"
+        style={{ lineHeight: 1.2 }}
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
+      >
+        Automated by Zac connects your tools, eliminates repetitive work and builds custom
+        applications, turning hours of manual effort into intelligent workflows that run
+        themselves, around the clock.
+      </motion.p>
+
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.7, ease: EASE }}
+      >
+        <a
+          href="#contact"
+          className="group inline-flex items-center gap-2 hover:gap-3 transition-all duration-300 bg-primary rounded-full pl-5 pr-1 py-1"
+        >
+          <span className="font-medium text-sm sm:text-base text-black">Get started</span>
+          <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <ArrowRight className="w-4 h-4 text-primary" />
+          </span>
+        </a>
+      </motion.div>
+    </>
+  );
+}
+
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    vid.setAttribute('webkit-playsinline', '');
+    vid.muted = true;
+    vid.play().catch(() => {});
+  }, []);
+
   return (
     <section className="h-screen p-4 md:p-6 bg-black">
       <div className="relative w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden">
         {/* Background video */}
         <video
+          ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
           src="/hero.mp4"
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
         />
 
         {/* Noise overlay */}
@@ -69,46 +115,29 @@ export default function Hero() {
           </nav>
         </div>
 
-        {/* Hero content */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 p-4 md:p-8 pb-6 md:pb-10">
-          {/* Row 1: empty left 8 cols, description + CTA in right 4 cols */}
-          <div className="grid grid-cols-12 mb-3 md:mb-5">
-            <div className="col-span-12 lg:col-span-4 lg:col-start-9 flex flex-col gap-4">
-              <motion.p
-                className="text-primary/70 text-xs sm:text-sm md:text-base m-0"
-                style={{ lineHeight: 1.2 }}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
-              >
-                Automated by Zac connects your tools, eliminates repetitive work and builds custom applications, turning hours of manual effort into intelligent workflows that run themselves, around the clock.
-              </motion.p>
+        {/* ── MOBILE layout (< lg): Automate at top, description at bottom ── */}
+        <div className="absolute inset-0 z-20 flex flex-col justify-between px-4 pt-16 pb-6 lg:hidden">
+          <h1
+            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 overflow-hidden"
+            style={{ fontSize: 'clamp(48px, 20vw, 120px)', color: '#E1E0CC' }}
+          >
+            <WordsPullUp text="Automate" showAsterisk />
+          </h1>
+          <div className="flex flex-col gap-4">
+            <DescriptionAndCTA />
+          </div>
+        </div>
 
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.7, ease: EASE }}
-              >
-                <a
-                  href="#contact"
-                  className="group inline-flex items-center gap-2 hover:gap-3 transition-all duration-300 bg-primary rounded-full pl-5 pr-1 py-1"
-                >
-                  <span className="font-medium text-sm sm:text-base text-black">Get started</span>
-                  <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <ArrowRight className="w-4 h-4 text-primary" />
-                  </span>
-                </a>
-              </motion.div>
+        {/* ── DESKTOP layout (≥ lg): description top-right, Automate full-width bottom ── */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 p-8 pb-10 hidden lg:block">
+          <div className="grid grid-cols-12 mb-5">
+            <div className="col-span-4 col-start-9 flex flex-col gap-4">
+              <DescriptionAndCTA />
             </div>
           </div>
-
-          {/* Row 2: full-width giant heading */}
           <h1
             className="font-medium leading-[0.85] tracking-[-0.07em] m-0 overflow-hidden w-full"
-            style={{
-              fontSize: 'clamp(48px, 17vw, 320px)',
-              color: '#E1E0CC',
-            }}
+            style={{ fontSize: 'clamp(48px, 17vw, 320px)', color: '#E1E0CC' }}
           >
             <WordsPullUp text="Automate" showAsterisk />
           </h1>
