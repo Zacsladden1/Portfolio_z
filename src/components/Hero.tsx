@@ -105,29 +105,27 @@ export default function Hero() {
         </div>
 
         {/* ── MOBILE layout (< lg): everything bottom-anchored, Automate just above text ── */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col gap-4 px-4 pb-6 lg:hidden">
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col gap-4 px-4 pb-14 lg:hidden">
           <h1
-            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 overflow-hidden"
+            className="font-medium leading-[0.85] tracking-[-0.07em] m-0"
             style={{ fontSize: 'clamp(48px, 17vw, 120px)', color: '#E1E0CC' }}
           >
-            <WordsPullUp text="Automate" showAsterisk />
+            <WordsPullUp text="Automate" />
           </h1>
           <DescriptionAndCTA />
         </div>
 
-        {/* ── DESKTOP layout (≥ lg): description top-right, Automate full-width bottom ── */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 p-8 pb-10 hidden lg:block">
-          <div className="grid grid-cols-12 mb-5">
-            <div className="col-span-4 col-start-9 flex flex-col gap-4">
-              <DescriptionAndCTA />
-            </div>
-          </div>
+        {/* ── DESKTOP layout (≥ lg): Automate left, description+CTA right, same row ── */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 p-8 pb-10 hidden lg:flex lg:items-end lg:gap-6">
           <h1
-            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 overflow-hidden w-full"
+            className="font-medium leading-[0.85] tracking-[-0.07em] m-0 flex-1"
             style={{ fontSize: 'clamp(48px, 17vw, 320px)', color: '#E1E0CC' }}
           >
-            <WordsPullUp text="Automate" showAsterisk />
+            <WordsPullUp text="Automate" />
           </h1>
+          <div className="flex flex-col gap-4 w-[28%] pb-2 shrink-0">
+            <DescriptionAndCTA />
+          </div>
         </div>
       </div>
     </section>

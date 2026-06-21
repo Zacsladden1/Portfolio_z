@@ -17,7 +17,7 @@ export default function WordsPullUp({ text, className = '', showAsterisk = false
       {words.map((word, i) => {
         const isLast = i === words.length - 1;
         return (
-          <span key={i} className="overflow-hidden inline-block" style={{ marginRight: i < words.length - 1 ? '0.25em' : 0 }}>
+          <span key={i} className="overflow-hidden inline-block" style={{ marginRight: i < words.length - 1 ? '0.25em' : 0, paddingRight: isLast ? '0.1em' : 0 }}>
             <motion.span
               className="inline-block relative"
               initial={{ y: 20, opacity: 0 }}

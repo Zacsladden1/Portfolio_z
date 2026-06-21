@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 import WordsPullUpMultiStyle from './WordsPullUpMultiStyle';
 import AutoPlayVideo from './AutoPlayVideo';
 
-const FEATURE_VIDEO = '/hero.mp4';
+const FEATURE_VIDEO = '/features-card.mp4';
 
 const CARDS = [
   {
