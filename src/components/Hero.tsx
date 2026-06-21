@@ -11,7 +11,12 @@ function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
-const NAV_ITEMS = ['Services', 'Projects', 'Tech stack', 'Case studies', 'Contact'];
+const NAV_ITEMS = [
+  { label: 'About',    href: '#about'    },
+  { label: 'Features', href: '#features' },
+  { label: 'Work',     href: '#work'     },
+  { label: 'Contact',  href: '#contact'  },
+];
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 function DescriptionAndCTA() {
@@ -74,15 +79,15 @@ export default function Hero() {
           <nav className="bg-black rounded-b-2xl md:rounded-b-3xl px-4 py-2 md:px-8">
             <ul className="flex items-center gap-3 sm:gap-6 md:gap-12 lg:gap-14">
               {NAV_ITEMS.map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <a
-                    href={item === 'Contact' ? '#contact' : '#'}
+                    href={item.href}
                     className="text-[10px] sm:text-xs md:text-sm transition-colors duration-200"
                     style={{ color: 'rgba(225, 224, 204, 0.8)' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#E1E0CC')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(225, 224, 204, 0.8)')}
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}

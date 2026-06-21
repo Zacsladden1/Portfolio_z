@@ -116,7 +116,7 @@ export default function Work() {
   const project = PROJECTS[index];
 
   return (
-    <section className="bg-black py-16 md:py-24 lg:py-32 px-4 md:px-8">
+    <section id="work" className="bg-black py-16 md:py-24 lg:py-32 px-4 md:px-8">
       <div className="max-w-6xl mx-auto" ref={ref}>
 
         {/* Label */}

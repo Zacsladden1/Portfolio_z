@@ -100,7 +100,7 @@ function FeatureCard({ card, index }: { card: typeof CARDS[number]; index: numbe
 
 export default function Features() {
   return (
-    <section className="min-h-screen bg-black relative py-16 md:py-24 lg:py-32 px-4 md:px-8">
+    <section id="features" className="min-h-screen bg-black relative py-16 md:py-24 lg:py-32 px-4 md:px-8">
       {/* Noise overlay */}
       <div className="bg-noise absolute inset-0 opacity-[0.15] pointer-events-none" />
 
