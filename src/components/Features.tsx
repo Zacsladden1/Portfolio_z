@@ -9,37 +9,39 @@ const FEATURE_VIDEO = '/features-card.mp4';
 const CARDS = [
   {
     type: 'video' as const,
-    label: 'Your workflows, automated.',
+    label: 'Built to scale. Automated to perform.',
   },
   {
     type: 'feature' as const,
     number: '01',
-    title: 'Workflow Automation.',
+    title: 'n8n Workflow Automation',
     items: [
-      'Automate email sequences',
-      'Process and route data 24/7',
-      'Replace repetitive manual tasks',
-      'Trigger on schedule or in real time',
+      'Connect 400+ apps and services',
+      'Schedule tasks or trigger in real-time',
+      'Process data 24/7 without manual work',
+      'Route and transform data automatically',
     ],
   },
   {
     type: 'feature' as const,
     number: '02',
-    title: 'API Integrations.',
+    title: 'Custom Web Applications',
     items: [
-      'Connect Slack, Google Sheets and CRMs',
-      'Integrate 400+ apps through n8n',
-      'Keep databases in sync automatically',
+      'Full-stack React/Node.js development',
+      'Mobile-first responsive design',
+      'Real-time data sync and messaging',
+      'Tailored to your exact requirements',
     ],
   },
   {
     type: 'feature' as const,
     number: '03',
-    title: 'AI-Powered Automation.',
+    title: 'AI Integration & Intelligence',
     items: [
-      'Analyse data automatically',
-      'Generate content on demand',
-      'Surface smart notifications that actually matter',
+      'OpenAI, Claude, and custom AI models',
+      'Smart data analysis and extraction',
+      'Natural language processing',
+      'Intelligent content generation',
     ],
   },
 ];
@@ -62,10 +64,10 @@ function FeatureCard({ card, index }: { card: typeof CARDS[number]; index: numbe
             src={FEATURE_VIDEO}
             className="absolute inset-0 w-full h-full object-cover scale-[2] -translate-x-24"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
             <p className="text-sm md:text-base font-medium" style={{ color: '#E1E0CC' }}>
-              Your workflows, automated.
+              {card.label}
             </p>
           </div>
         </div>
@@ -110,7 +112,7 @@ export default function Features() {
           <WordsPullUpMultiStyle
             segments={[
               {
-                text: 'Studio-grade workflows for ambitious businesses.',
+                text: 'Professional automation for',
                 className: 'text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-primary',
               },
             ]}
@@ -119,7 +121,7 @@ export default function Features() {
           <WordsPullUpMultiStyle
             segments={[
               {
-                text: 'Built to connect. Powered by automation.',
+                text: 'growing businesses.',
                 className: 'text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-gray-500',
               },
             ]}

@@ -24,14 +24,14 @@ function DescriptionAndCTA() {
     <>
       <motion.p
         className="text-primary text-xs sm:text-sm md:text-base m-0"
-        style={{ lineHeight: 1.2 }}
+        style={{ lineHeight: 1.4 }}
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
       >
-        Automated by Zac connects your tools, eliminates repetitive work and builds custom
-        applications, turning hours of manual effort into intelligent workflows that run
-        themselves, around the clock.
+        Custom automation and application development that connects your tools,
+        eliminates manual work, and scales your operations with intelligent workflows
+        that run 24/7.
       </motion.p>
 
       <motion.div

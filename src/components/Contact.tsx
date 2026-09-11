@@ -12,7 +12,6 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -20,7 +19,11 @@ export default function Contact() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSent(true);
+    const subject = encodeURIComponent('New project enquiry');
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
+    );
+    window.location.href = `mailto:zac@builtby.ai?subject=${subject}&body=${body}`;
   }
 
   return (
@@ -40,10 +43,15 @@ export default function Contact() {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.9] tracking-[-0.04em] m-0"
               style={{ color: '#E1E0CC' }}
             >
-              Let's build something great.
+              Let's work together.
             </h2>
             <p className="text-gray-500 text-xs sm:text-sm mt-6 leading-relaxed max-w-sm">
-              Have a project in mind or just want to explore what automation could do for your business? Drop a message and I'll get back to you.
+              Have a project in mind? Whether it's workflow automation, API integration, or a custom application, get in touch and let's discuss how I can help.
+            </p>
+            <p className="text-gray-400 text-xs sm:text-sm mt-4">
+              <a href="mailto:zac@builtby.ai" className="hover:text-primary transition-colors duration-200">
+                zac@builtby.ai
+              </a>
             </p>
           </motion.div>
 
@@ -53,15 +61,7 @@ export default function Contact() {
             animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
           >
-            {sent ? (
-              <div className="flex flex-col justify-center h-full py-12">
-                <p className="text-primary text-lg sm:text-xl font-medium mb-2">Message sent.</p>
-                <p className="text-gray-500 text-xs sm:text-sm">
-                  Thanks for reaching out — I'll be in touch shortly.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
                 <div>
                   <input
                     type="text"
@@ -108,7 +108,6 @@ export default function Contact() {
                   </button>
                 </div>
               </form>
-            )}
           </motion.div>
         </div>
       </div>

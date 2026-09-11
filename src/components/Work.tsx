@@ -10,13 +10,13 @@ const PROJECTS = [
     label: 'Full-stack web app · 2025',
     title: 'Noahtrains',
     description:
-      'A mobile-first coaching platform built for a personal trainer to manage clients, assign programs and track progress — and for clients to log workouts, scan food barcodes and message their coach in real time.',
+      'A mobile-first coaching platform for personal trainers to manage clients, assign programs, and track progress. Clients log workouts, scan food barcodes, and message their coach in real-time.',
     features: [
-      { label: 'Workout Tracking', desc: 'Set-by-set logging with weight, reps, tempo and rest timer' },
-      { label: 'Nutrition & Barcode Scan', desc: 'Macro tracking with live barcode scanning via Open Food Facts' },
+      { label: 'Workout Tracking', desc: 'Set-by-set logging with weight, reps, tempo, and rest timer' },
+      { label: 'Nutrition & Barcode Scan', desc: 'Macro tracking with live barcode scanning via Open Food Facts API' },
       { label: 'Real-time Messaging', desc: '1:1 coach–client chat with photo sharing and read receipts' },
-      { label: 'Coach Dashboard', desc: 'Client management, program assignment and progress monitoring' },
-      { label: 'Content Library', desc: 'Video and document library for form corrections and guides' },
+      { label: 'Coach Dashboard', desc: 'Client management, program assignment, and progress monitoring' },
+      { label: 'Content Library', desc: 'Video and document library for form guides and resources' },
       { label: 'Push Notifications', desc: 'Scheduled reminders via Web Push and Vercel cron jobs' },
     ],
     visual: 'phone' as const,
@@ -24,16 +24,16 @@ const PROJECTS = [
     logo: '/noahtrains-logo.png',
   },
   {
-    label: 'Workflow automation · property management · 2025',
+    label: 'Workflow automation · 2025',
     title: 'Property Inspection Automations',
     description:
-      'A web platform that eliminated manual scheduling work for a lettings agency. CSV exports from 12+ estate agent branches are automatically parsed, inspections distributed across inspectors, and SMS confirmations sent to tenants — all without human intervention.',
+      'A web platform that eliminated manual scheduling for a lettings agency. CSV exports from 12+ estate agent branches are automatically parsed, inspections distributed across inspectors, and SMS confirmations sent to tenants—all without human intervention.',
     features: [
-      { label: 'CSV Auto-Parser', desc: 'Ingests 12+ branch formats and standardises into one master spreadsheet' },
-      { label: 'Inspection Scheduling', desc: 'n8n webhook distributes properties across inspectors with configurable daily limits' },
-      { label: 'Automated SMS', desc: 'Sends confirmation and reminder messages to tenants without manual input' },
-      { label: 'Route Optimisation', desc: 'Groups inspections geographically to minimise travel between properties' },
-      { label: 'Real-time Status', desc: 'Supabase live subscriptions show processing state as n8n workflows run' },
+      { label: 'CSV Auto-Parser', desc: 'Ingests 12+ branch formats and standardizes into one master spreadsheet' },
+      { label: 'Inspection Scheduling', desc: 'n8n webhook distributes properties across inspectors with daily limits' },
+      { label: 'Automated SMS', desc: 'Sends confirmation and reminder messages to tenants automatically' },
+      { label: 'Route Optimization', desc: 'Groups inspections geographically to minimize travel time' },
+      { label: 'Real-time Status', desc: 'Supabase subscriptions show processing state as workflows execute' },
       { label: 'Data Export', desc: 'One-click CSV and Excel export of processed inspection schedules' },
     ],
     visual: 'laptop' as const,
@@ -133,8 +133,8 @@ export default function Work() {
         <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center leading-[0.95] mb-10 md:mb-14">
           <WordsPullUpMultiStyle
             segments={[
-              { text: 'Projects that', className: 'font-normal text-primary' },
-              { text: 'speak for themselves.', className: 'font-serif italic text-primary' },
+              { text: 'Recent', className: 'font-normal text-primary' },
+              { text: 'client work.', className: 'font-serif italic text-primary' },
             ]}
           />
         </div>

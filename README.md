@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+# Built by Zac
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Professional automation and custom app development agency website.
 
-Currently, two official plugins are available:
+**Live site:** [https://builtbyzac.ai](https://builtbyzac.ai)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About
 
-## React Compiler
+Built by Zac (trading name: Automated by Zac) specializes in workflow automation, API integrations, and custom web applications. We help businesses connect their tools, eliminate repetitive work, and build intelligent workflows that run autonomously.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework:** React 19 + TypeScript
+- **Build Tool:** Vite 8
+- **Styling:** Tailwind CSS 3
+- **Animation:** Framer Motion 12
+- **Icons:** Lucide React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js 18+ and npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+The site will be available at `http://localhost:5173`
+
+### Build
+
+```bash
+npm run build
+```
+
+The production build will be output to the `dist` directory.
+
+### Preview
+
+```bash
+npm run preview
+```
+
+## Deployment
+
+This site is designed to be deployed to modern static hosting platforms (Vercel, Netlify, Cloudflare Pages, etc.).
+
+For Vercel:
+```bash
+vercel --prod
+```
+
+## Project Structure
+
+```
+src/
+├── components/       # React components
+│   ├── Hero.tsx     # Hero section with video background
+│   ├── About.tsx    # About/services section
+│   ├── Features.tsx # Feature cards
+│   ├── Work.tsx     # Portfolio/case studies
+│   ├── Contact.tsx  # Contact form
+│   └── Footer.tsx   # Site footer
+├── App.tsx          # Main app component
+├── main.tsx         # App entry point
+└── index.css        # Global styles
+```
+
+## Contact
+
+- **Email:** [zac@builtby.ai](mailto:zac@builtby.ai)
+- **LinkedIn:** [Zac Sladden](https://www.linkedin.com/in/zacsladden)
+
+## License
+
+© 2025 Zac Sladden. All rights reserved.
