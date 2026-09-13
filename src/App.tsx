@@ -15,7 +15,6 @@ const services = [
 export default function App() {
   const [selected, setSelected] = useState(0);
   const [expanded, setExpanded] = useState<number | null>(0);
-  const [menu, setMenu] = useState(false);
   const project = work[selected];
   const reducedMotion = useReducedMotion();
   const [activeStep, setActiveStep] = useState(0);
@@ -29,10 +28,6 @@ export default function App() {
     <a className="skip" href="#main">Skip to content</a>
     <header className="header">
       <a className="brand" href="#top" aria-label="Automated by Zac home"><img className="brand-logo" src="/automated-by-zac-logo-v2.png" alt="Automated by Zac" width="1891" height="831"/></a>
-      <button className="menu" aria-expanded={menu} aria-controls="navigation" onClick={()=>setMenu(!menu)}>{menu?'Close':'Menu'}</button>
-      <nav id="navigation" className={menu?'navigation open':'navigation'} aria-label="Main navigation" onKeyDown={e=>{if(e.key==='Escape'){setMenu(false);document.querySelector<HTMLButtonElement>('.menu')?.focus();}}}><div className="navigation-inner">
-        <a href="#work" onClick={()=>setMenu(false)}>Selected work</a><a href="#approach" onClick={()=>setMenu(false)}>What I do</a><a href="#websites" onClick={()=>setMenu(false)}>Websites</a><a href="#about" onClick={()=>setMenu(false)}>About Zac</a>
-      </div></nav>
       <a className="header-contact" href="mailto:zac@builtbyzac.ai">Let’s talk <ArrowUpRight size={17}/></a>
     </header>
     <main id="main">
